@@ -8,8 +8,10 @@ let player = "";
 let count = 0;
 let playerScore = 0;
 let compScore = 0;
+
 cards.forEach((element) => {
   element.addEventListener("click", () => {
+    console.log(element);
     function round(player, comp) {
       if (player == comp)
         return (score.innerHTML = `You draw this round, ${player} and ${comp}. \n Your Score = ${playerScore}, opponent Score ${compScore}`);
@@ -38,13 +40,13 @@ cards.forEach((element) => {
     }
     console.log(computer);
     round(player, computer);
+    count++;
+    if (count == 5) {
+      if (playerScore > compScore) {
+        score.innerHTML = `You WIN! \n Your Score = ${playerScore}, opponent Score ${compScore}`;
+      } else {
+        score.innerHTML = `YOU LOSE! \n Your Score = ${playerScore}, opponent Score ${compScore}`;
+      }
+    }
   });
 });
-
-if (playerScore > compScore) {
-  alert(`You WIN! \n Your Score = ${playerScore}, opponent Score ${compScore}`);
-} else {
-  alert(
-    `YOU LOSE! \n Your Score = ${playerScore}, opponent Score ${compScore}`
-  );
-}
