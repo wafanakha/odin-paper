@@ -1,9 +1,24 @@
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissor = document.querySelector("#scissor");
+const score = document.querySelector(".score");
+let player = "";
+rock.addEventListener("click", () => (player = "rock"));
+paper.addEventListener("click", () => (player = "paper"));
+scissor.addEventListener("click", () => (player = "scissor"));
+let computer = Math.random();
+if (computer < 0.33) {
+  computer = "paper";
+} else if (computer < 0.66) {
+  computer = "rock";
+} else {
+  computer = "scissor";
+}
 let count = 0;
 let playerScore = 0;
 let compScore = 0;
 while (count <= 5) {
   function round(player, comp) {
-    player.toLowerCase();
     if (player == comp)
       return alert(
         `You draw this round, ${player} and ${comp}. \n Your Score = ${playerScore}, opponent Score ${compScore}`
@@ -25,15 +40,6 @@ while (count <= 5) {
     }
   }
 
-  const player = prompt("choose your fighter");
-  let computer = Math.random();
-  if (computer < 0.33) {
-    computer = "paper";
-  } else if (computer < 0.66) {
-    computer = "rock";
-  } else {
-    computer = "scissor";
-  }
   round(player, computer);
   count++;
 }
