@@ -1,6 +1,3 @@
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissor = document.querySelector("#scissor");
 const cards = document.querySelectorAll(".flex-container img");
 const score = document.querySelector(".score");
 let player = "";
@@ -11,6 +8,7 @@ let compScore = 0;
 
 cards.forEach((element) => {
   element.addEventListener("click", () => {
+    player = element.id;
     console.log(element);
     function round(player, comp) {
       if (player == comp)
@@ -27,9 +25,6 @@ cards.forEach((element) => {
         return (score.innerHTML = `You Lose this round!, ${player} lose againts ${comp}. \n Your Score = ${playerScore}, opponent Score ${compScore}`);
       }
     }
-    rock.addEventListener("click", () => (player = "rock"));
-    paper.addEventListener("click", () => (player = "paper"));
-    scissor.addEventListener("click", () => (player = "scissor"));
     let computer = Math.random();
     if (computer < 0.33) {
       computer = "paper";
