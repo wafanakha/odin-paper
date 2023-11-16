@@ -9,6 +9,7 @@ body {
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  background-image: url(https://www.toptal.com/designers/subtlepatterns/uploads/moroccan-flower-dark.png);
 }
 .main-container {
   border: rgb(92, 75, 75) 2px solid;
